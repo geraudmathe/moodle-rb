@@ -30,11 +30,7 @@ module MoodleRb
         '/webservice/rest/server.php',
         {
           :query => query_hash('gradereport_user_get_grade_items', token),
-          :body => {
-            :courseid => params[:course_id],
-            :userid => params[:user_id],
-            :groupid => params[:group_id]
-          }
+          :body => params
         }.merge(query_options)
       )
       check_for_errors(response)
