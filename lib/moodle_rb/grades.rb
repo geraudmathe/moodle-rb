@@ -35,7 +35,7 @@ module MoodleRb
         }.merge(query_options)
       )
       check_for_errors(response)
-      response.parsed_response['items']
+      response.parsed_response['usergrades']
     end
   end
 end
