@@ -25,14 +25,15 @@ module MoodleRb
       response.parsed_response['assignments']
     end
 
-    def by_course(course_id, *user_ids)
+    def by_course(course_id, user_id=nil, group_id = nil)
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => query_hash('core_grades_get_grades', token),
+          :query => query_hash('gradereport_user_get_grade_items', token),
           :body => {
             :courseid => course_id,
-            :userids => api_array(user_ids)
+            :userid => user_id,
+            :groupid => group_id
           }
         }.merge(query_options)
       )
