@@ -16,7 +16,7 @@ module MoodleRb
         '/webservice/rest/server.php',
         {
           :query => query_hash('mod_assign_get_grades', token),
-          :body => {
+          :body => { 
             :assignmentids => api_array(assignment_id)
           }
         }.merge(query_options)
@@ -35,7 +35,6 @@ module MoodleRb
           }
         }.merge(query_options)
       )
-      puts response
       check_for_errors(response)
       response.parsed_response['usergrades']
     end
