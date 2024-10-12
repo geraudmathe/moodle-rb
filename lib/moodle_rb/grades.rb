@@ -26,7 +26,6 @@ module MoodleRb
     end
 
     def by_course(params)
-      p params
       response = self.class.post(
         '/webservice/rest/server.php',
         {
@@ -34,6 +33,7 @@ module MoodleRb
           :body => params
         }.merge(query_options)
       )
+      puts response
       check_for_errors(response)
       response.parsed_response['usergrades']
     end
